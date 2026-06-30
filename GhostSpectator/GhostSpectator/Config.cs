@@ -19,6 +19,9 @@ namespace GhostSpectator
         [Description("Ghost nickname color.")]
         public string GhostColor { get; set; } = "#A0A0A0";
 
+        [Description("Should Ghosts constantly have their displayed Ghost name reinforced?")]
+        public bool ConstantlyReinforceName { get; set; } = true;
+        
         [Description("Ghost health.")]
         public float GhostHealth { get; set; } = 150f;
 
