@@ -112,7 +112,21 @@ namespace GhostSpectator.Features
 
         public void Update()
         {
-            player.GetStatModule<StaminaStat>().AddAmount(1f);
+        player.GetStatModule<StaminaStat>().AddAmount(1f);
+
+            if (!Config.ConstantlyReinforceName)
+            {
+              return;
+            }
+
+            string ghostInfo = $"<color={Config.GhostColor}>{Translation.GhostNickname ?? "GHOST"}</color>";
+
+            player.InfoArea &= ~PlayerInfoArea.Role;
+
+            if (player.CustomInfo != ghostInfo)
+            {
+            player.CustomInfo = ghostInfo;
+            }
         }
 
         public void OnDisable()
